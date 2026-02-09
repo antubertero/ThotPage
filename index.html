@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turnos de Peluquería</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <span class="hero__badge">Agenda simple</span>
+        <h1>Gestión de turnos para peluquería</h1>
+        <p>
+          Organiza reservas por peluquero, horario y servicio. Todo en una sola
+          vista y sin complicaciones.
+        </p>
+      </div>
+      <div class="hero__summary">
+        <div>
+          <h2 id="total-turnos">0</h2>
+          <span>Turnos agendados</span>
+        </div>
+        <div>
+          <h2 id="peluqueros-activos">0</h2>
+          <span>Peluqueros activos</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Nuevo turno</h2>
+        <form id="turno-form" class="form-grid">
+          <label>
+            Cliente
+            <input type="text" name="cliente" placeholder="Nombre completo" required />
+          </label>
+          <label>
+            Teléfono
+            <input type="tel" name="telefono" placeholder="Ej: 11 5555 1234" />
+          </label>
+          <label>
+            Fecha
+            <input type="date" name="fecha" required />
+          </label>
+          <label>
+            Hora
+            <input type="time" name="hora" required />
+          </label>
+          <label>
+            Servicio
+            <select name="servicio" required>
+              <option value="">Selecciona un servicio</option>
+              <option value="Corte">Corte</option>
+              <option value="Color">Color</option>
+              <option value="Barba">Barba</option>
+              <option value="Peinado">Peinado</option>
+            </select>
+          </label>
+          <label>
+            Peluquero
+            <select name="peluquero" id="peluquero-select" required></select>
+          </label>
+          <label class="span-2">
+            Notas
+            <textarea
+              name="notas"
+              rows="3"
+              placeholder="Preferencias, alergias, etc."
+            ></textarea>
+          </label>
+          <button type="submit" class="primary">Agendar turno</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Agenda diaria</h2>
+            <p>Visualiza los turnos y asignaciones por peluquero.</p>
+          </div>
+          <label class="filter">
+            Filtrar por peluquero
+            <select id="filter-peluquero">
+              <option value="todos">Todos</option>
+            </select>
+          </label>
+        </div>
+        <div class="agenda" id="agenda"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Consejo: mantén una separación mínima de 15 minutos entre servicios
+        largos.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
